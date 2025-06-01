@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects - Mahesh's Portfolio</title>
+    <link href="../output.css" rel="stylesheet" />
+</head>
+
+<body class="min-h-screen bg-cover bg-center bg-no-repeat text-gray-800 text-2xl font-bold dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300" style="background-image: url('../Assets/Images/Background.png');">
+    <script>
+        // Apply dark mode immediately to prevent FOUC
+        if (
+            localStorage.getItem("color-theme") === "dark" ||
+            (!("color-theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+    </script>
+    <header id="top-header" class="fixed top-0 left-0 right-0 z-50 p-4 transition-all duration-300 ease-out transform -translate-y-full bg-transparent dark:bg-gray-900/30 backdrop-blur-lg shadow-sm">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="../index.html" class="text-2xl font-bold text-gray-800 dark:text-white hover:text-teal-600 dark:hover:text-teal-300 transition-colors duration-300">MP</a>
+
+            <!-- Centered Pill Navigation -->
+            <nav id="navbar" class="transition-transform duration-700 ease-out">
+                <div class="flex items-center justify-center bg-gradient-to-r from-teal-400/90 to-cyan-500/90 dark:from-teal-600/80 dark:to-cyan-700/80 backdrop-blur-xl shadow-xl dark:shadow-cyan-900/30 rounded-full px-2 py-1.5 sm:px-3 sm:py-2 md:px-6 md:py-3 border border-white/20 dark:border-gray-700/50">
+                    <div class="relative flex space-x-0.5 sm:space-x-1" id="nav-links-container">
+                        <a href="../index.html" data-navlink class="nav-link px-1.5 py-1 text-[11px] leading-tight sm:text-xs sm:px-2 sm:py-1.5 md:text-sm md:px-3 md:py-2 text-gray-800 dark:text-gray-100 hover:bg-white/20 dark:hover:bg-white/10 hover:text-black dark:hover:text-white rounded-full transition-all duration-300 ease-in-out relative z-10">Home</a>
+                        <a href="about.html" data-navlink class="nav-link px-1.5 py-1 text-[11px] leading-tight sm:text-xs sm:px-2 sm:py-1.5 md:text-sm md:px-3 md:py-2 text-gray-800 dark:text-gray-100 hover:bg-white/20 dark:hover:bg-white/10 hover:text-black dark:hover:text-white rounded-full transition-all duration-300 ease-in-out relative z-10">About</a>
+                        <a href="project.html" data-navlink class="nav-link px-1.5 py-1 text-[11px] leading-tight sm:text-xs sm:px-2 sm:py-1.5 md:text-sm md:px-3 md:py-2 text-gray-800 dark:text-gray-100 hover:bg-white/20 dark:hover:bg-white/10 hover:text-black dark:hover:text-white rounded-full transition-all duration-300 ease-in-out relative z-10">Projects</a>
+                        <a href="skills.html" data-navlink class="nav-link px-1.5 py-1 text-[11px] leading-tight sm:text-xs sm:px-2 sm:py-1.5 md:text-sm md:px-3 md:py-2 text-gray-800 dark:text-gray-100 hover:bg-white/20 dark:hover:bg-white/10 hover:text-black dark:hover:text-white rounded-full transition-all duration-300 ease-in-out relative z-10">Skills</a>
+                        <a href="experience.html" data-navlink class="nav-link px-1.5 py-1 text-[11px] leading-tight sm:text-xs sm:px-2 sm:py-1.5 md:text-sm md:px-3 md:py-2 text-gray-800 dark:text-gray-100 hover:bg-white/20 dark:hover:bg-white/10 hover:text-black dark:hover:text-white rounded-full transition-all duration-300 ease-in-out relative z-10">Experience</a>
+                        <a href="certificates.html" data-navlink class="nav-link px-1.5 py-1 text-[11px] leading-tight sm:text-xs sm:px-2 sm:py-1.5 md:text-sm md:px-3 md:py-2 text-gray-800 dark:text-gray-100 hover:bg-white/20 dark:hover:bg-white/10 hover:text-black dark:hover:text-white rounded-full transition-all duration-300 ease-in-out relative z-10 hidden sm:inline-block">Certificates</a>
+                        <a href="contact.html" data-navlink class="nav-link px-1.5 py-1 text-[11px] leading-tight sm:text-xs sm:px-2 sm:py-1.5 md:text-sm md:px-3 md:py-2 text-gray-800 dark:text-gray-100 hover:bg-white/20 dark:hover:bg-white/10 hover:text-black dark:hover:text-white rounded-full transition-all duration-300 ease-in-out relative z-10">Contact</a>
+                        <div id="nav-indicator" class="absolute bottom-0 left-0 h-full bg-teal-500 dark:bg-teal-400 rounded-full transition-all duration-300 ease-in-out z-0"></div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Theme Toggle -->
+            <button id="theme-toggle" type="button" class="text-gray-700 dark:text-gray-300 hover:bg-gray-200/70 dark:hover:bg-gray-700/70 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-600 rounded-lg text-sm p-2.5 transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+              <svg
+                id="theme-toggle-dark-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+              <svg
+                id="theme-toggle-light-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 011.414 0l.707-.707a1 1 0 111.414 1.414l-.707-.707a1 1 0 01-1.414 0zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-16 flex flex-col items-center justify-start min-h-screen text-gray-800 dark:text-gray-100 transition-colors duration-300 px-4 w-full">
+        <!-- Projects Section -->
+        <section id="projects" class="w-full max-w-5xl mx-auto bg-white/70 dark:bg-gray-800/70 backdrop-blur-md shadow-xl rounded-lg p-8 md:p-12 my-10">
+            <h1 class="text-3xl sm:text-4xl font-bold text-center mb-10 text-teal-600 dark:text-teal-400">My Projects</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Placeholder for project items -->
+                <div class="bg-white/80 dark:bg-gray-700/80 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-teal-500/30">
+                    <img src="https://via.placeholder.com/400x250/CCCCCC/4A5568?text=Project+Image+1" alt="Project 1 Thumbnail" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 text-teal-700 dark:text-teal-300">Project Title 1</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Brief description of the project. Lorem ipsum dolor sit amet, consectetur adipiscing elit. (Placeholder)</p>
+                        <div class="flex space-x-2 mb-3">
+                            <span class="text-xs bg-teal-100 text-teal-700 dark:bg-teal-700 dark:text-teal-200 px-2 py-1 rounded-full">HTML</span>
+                            <span class="text-xs bg-teal-100 text-teal-700 dark:bg-teal-700 dark:text-teal-200 px-2 py-1 rounded-full">CSS</span>
+                            <span class="text-xs bg-teal-100 text-teal-700 dark:bg-teal-700 dark:text-teal-200 px-2 py-1 rounded-full">JavaScript</span>
+                        </div>
+                        <a href="#" class="text-teal-500 dark:text-teal-400 hover:underline font-medium">View Project (Placeholder)</a>
+                    </div>
+                </div>
+                <div class="bg-white/80 dark:bg-gray-700/80 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-teal-500/30">
+                    <img src="https://via.placeholder.com/400x250/CCCCCC/4A5568?text=Project+Image+2" alt="Project 2 Thumbnail" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 text-teal-700 dark:text-teal-300">Project Title 2</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Brief description of the project. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. (Placeholder)</p>
+                        <div class="flex space-x-2 mb-3">
+                            <span class="text-xs bg-teal-100 text-teal-700 dark:bg-teal-700 dark:text-teal-200 px-2 py-1 rounded-full">React</span>
+                            <span class="text-xs bg-teal-100 text-teal-700 dark:bg-teal-700 dark:text-teal-200 px-2 py-1 rounded-full">Node.js</span>
+                        </div>
+                        <a href="#" class="text-teal-500 dark:text-teal-400 hover:underline font-medium">View Project (Placeholder)</a>
+                    </div>
+                </div>
+                <div class="bg-white/80 dark:bg-gray-700/80 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-teal-500/30">
+                    <img src="https://via.placeholder.com/400x250/CCCCCC/4A5568?text=Project+Image+3" alt="Project 3 Thumbnail" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 text-teal-700 dark:text-teal-300">Project Title 3</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Brief description of the project. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. (Placeholder)</p>
+                        <div class="flex space-x-2 mb-3">
+                            <span class="text-xs bg-teal-100 text-teal-700 dark:bg-teal-700 dark:text-teal-200 px-2 py-1 rounded-full">Python</span>
+                            <span class="text-xs bg-teal-100 text-teal-700 dark:bg-teal-700 dark:text-teal-200 px-2 py-1 rounded-full">Django</span>
+                        </div>
+                        <a href="#" class="text-teal-500 dark:text-teal-400 hover:underline font-medium">View Project (Placeholder)</a>
+                    </div>
+                </div>
+                <!-- Add more project items as needed -->
+            </div>
+        </section>
+    </main>
+
+    <script src="../Assets/Javascript/main.js"></script>
+    <button id="back-to-top" title="Go to top" class="hidden fixed bottom-8 right-8 z-[99] p-3 bg-teal-500 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-800 text-white rounded-full shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-teal-300 dark:focus:ring-teal-700 opacity-0">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+</button>
+</body>
+
+</html>
